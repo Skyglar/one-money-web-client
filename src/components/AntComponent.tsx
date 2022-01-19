@@ -7,7 +7,7 @@ export default function AntComponent() {
     <div className="App">
       <h1>antd version: {version}</h1>
       <DatePicker />
-      <Button type="primary" style={{ marginLeft: 8, colorScheme: "#13c2c2"}}>
+      <Button type="primary" style={{ marginLeft: 8}}>
         Primary Button
       </Button>
     </div>
