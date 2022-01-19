@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import AntComponent from './components/AntComponent'
+import AntComponent from './components/AntComponent';
+import "antd/dist/antd.css";
+
 
 ReactDOM.render(
   <React.StrictMode>
