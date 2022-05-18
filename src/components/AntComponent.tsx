@@ -2,6 +2,8 @@ import { Button, DatePicker, version } from "antd";
 import { useEffect, useState } from "react";
 import "../assets/styles/antd.css";
 import "../assets/styles/index.css";
+import { Category } from "../entities/category";
+import { CategoryItemTemplate } from "../modules/categories/category.templates/category.item";
 import * as ValueApi from "../web.api/value.api";
 
 export default function AntComponent() {
@@ -23,6 +25,8 @@ export default function AntComponent() {
       <Button type="primary" style={{ marginLeft: 8}}>
         Primary Button
       </Button>
+      <br /><br />
+      <CategoryItemTemplate CategoryModel={new Category()}/>
     </div>
   );
 }
