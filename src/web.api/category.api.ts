@@ -1,10 +1,10 @@
 import { ApiUrlBuilder } from "../helpers/ApiUrlBuilder"
 import * as api from "../web.api/api.constants";
 
-export const GetOrganizationClientByIdEpic = async (action$: any, store: any) =>
+export const GetAllCategoriesEpic = async (action$: any, store: any) =>
 {
     debugger;
-    let query = ApiUrlBuilder.Build(api.TEST_API_TRIGGER, "uk/") + action$;
+    let query = ApiUrlBuilder.Build(api.GET_ALL_CATEGORIES, "uk/") + action$;
     
     const response = await fetch(query, {
     method: 'GET',

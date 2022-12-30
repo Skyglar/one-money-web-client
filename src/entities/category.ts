@@ -6,4 +6,6 @@ export class Category extends EntityBase {
     public Image: string = '';
 
     public Color: string = '';
+
+    public Amount: number = 0;
 }
