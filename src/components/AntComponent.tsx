@@ -5,6 +5,7 @@ import "../assets/styles/index.css";
 import { Category } from "../entities/category";
 import { CategoriesComponent } from "../modules/categories/categories.component";
 import { CategoryItemTemplate } from "../modules/categories/category.templates/category.item";
+import CategoriesChart from "../modules/categories/category.templates/categories.chart";
 import * as ValueApi from "../web.api/value.api";
 
 export default function AntComponent() {
@@ -26,6 +27,7 @@ export default function AntComponent() {
       </Button>
       <br /><br />
       <CategoriesComponent/>
+      <CategoriesChart/>
     </div>
   );
 }
