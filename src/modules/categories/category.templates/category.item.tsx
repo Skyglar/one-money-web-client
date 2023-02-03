@@ -8,7 +8,6 @@ interface ICategoryItemTemplateProps {
 }
 
 export const CategoryItemTemplate = (props: ICategoryItemTemplateProps) => {
-    debugger;
     return (
         <div className="card">
             <div>{props.categoryModel.Name}</div>

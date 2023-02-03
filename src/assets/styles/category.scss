@@ -24,9 +24,16 @@
           }
 
         & > div {
-          margin: 20px;
+          margin: 20px auto;
         }
       }
+    }
+
+    .chart {
+      grid-column: 2;
+      grid-row: 2;
+      grid-column-end: span 2;
+      grid-row-end: span 2;
     }
   }
 }

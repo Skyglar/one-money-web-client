@@ -27,7 +27,6 @@ export default function AntComponent() {
       </Button>
       <br /><br />
       <CategoriesComponent/>
-      <CategoriesChart/>
     </div>
   );
 }
