@@ -15,6 +15,7 @@ export const CategoriesComponent = () => {
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
+    debugger;
     CategoryApi.GetAllCategoriesEpic("hello from client", "").then((data) =>
       setCategories(data)
     );

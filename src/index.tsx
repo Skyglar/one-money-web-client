@@ -1,13 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import AntComponent from './components/AntComponent';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { MasterPage } from './master.page'
 import "antd/dist/antd.min.css";
-
 
 ReactDOM.render(
   <React.StrictMode>
-    <AntComponent />
+    <BrowserRouter>
+      <MasterPage />
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
