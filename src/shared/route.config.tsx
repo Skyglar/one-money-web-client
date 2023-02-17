@@ -1,5 +1,6 @@
 import { CategoriesComponent } from "../modules/categories/categories.component";
 import { Routes, Route } from "react-router-dom";
+import { NotFound } from "../components/NotFound";
 
 interface IRoute {
     path: string;
@@ -8,11 +9,11 @@ interface IRoute {
 }
 
 const getRoutes = (): IRoute[] => [
-    { path: "/profile", element: null },
-    { path: "/accounts", element: null },
+    { path: "/profile", element: <NotFound /> },
+    { path: "/accounts", element: <NotFound /> },
     { path: "/categories", element: <CategoriesComponent /> },
-    { path: "/transactions", element: null },
-    { path: "/overview", element: null},
+    { path: "/transactions", element: <NotFound /> },
+    { path: "/overview", element: <NotFound />},
 ]
 
 
@@ -25,10 +26,7 @@ export const RouteConfig = ({ currentLanguage, webApiLocale }: any) => {
                 );
             })}
 
-            {/* 
-            TODO Create NotFound component
-            <Route path="*" element={NotFound}/> 
-            */}
+            <Route path="*" element={<NotFound />}/> 
         </Routes>
     );
 }

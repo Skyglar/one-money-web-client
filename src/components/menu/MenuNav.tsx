@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 export const MenuNavbar = () => {
 
@@ -9,10 +9,11 @@ export const MenuNavbar = () => {
             </div>
 
             <ul>
-                <li><Link to='/accounts'>Accounts</Link></li>
-                <li><Link to='/categories'>Categories</Link></li>
-                <li><Link to='/transactions'>Transactions</Link></li>
-                <li><Link to='/overview'>Overview</Link></li>
+                {/* TODO Add style to display active link */}
+                <li><NavLink to='/accounts' style={ (( {isActive} ) => ({ color: isActive ? "red" : "black"})) } >Accounts</NavLink></li>
+                <li><NavLink to='/categories' style={ (( {isActive} ) => ({ color: isActive ? "red" : "black"})) } >Categories</NavLink></li>
+                <li><NavLink to='/transactions' style={ (( {isActive} ) => ({ color: isActive ? "red" : "black"})) } >Transactions</NavLink></li>
+                <li><NavLink to='/overview' style={ (( {isActive} ) => ({ color: isActive ? "red" : "black"})) } >Overview</NavLink></li>
             </ul>
         </div>
     )
