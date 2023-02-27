@@ -10,10 +10,10 @@ export const MenuSection = () => {
 
             <ul>
                 {/* TODO Add style to display active link */}
-                <li><NavLink to='/accounts' style={ (( {isActive} ) => ({ color: isActive ? "red" : "black"})) } >Accounts</NavLink></li>
-                <li><NavLink to='/categories' style={ (( {isActive} ) => ({ color: isActive ? "red" : "black"})) } >Categories</NavLink></li>
-                <li><NavLink to='/transactions' style={ (( {isActive} ) => ({ color: isActive ? "red" : "black"})) } >Transactions</NavLink></li>
-                <li><NavLink to='/overview' style={ (( {isActive} ) => ({ color: isActive ? "red" : "black"})) } >Overview</NavLink></li>
+                <li><NavLink to='/accounts' style={ (( {isActive} ) => ({ color: isActive ? "#fcfdff" : "#ebedf3", fontSize: isActive ? 20 : 15 })) } >Accounts</NavLink></li>
+                <li><NavLink to='/categories' style={ (( {isActive} ) => ({ color: isActive ? "#fcfdff" : "#ebedf3", fontSize: isActive ? 20 : 15 })) } >Categories</NavLink></li>
+                <li><NavLink to='/transactions' style={ (( {isActive} ) => ({ color: isActive ? "#fcfdff" : "#ebedf3", fontSize: isActive ? 20 : 15 })) } >Transactions</NavLink></li>
+                <li><NavLink to='/overview' style={ (( {isActive} ) => ({ color: isActive ? "#fcfdff" : "#ebedf3", fontSize: isActive ? 20 : 15 })) } >Overview</NavLink></li>
             </ul>
         </div>
     )

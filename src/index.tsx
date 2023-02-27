@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { MasterPage } from './master.page'
 import "antd/dist/antd.min.css";
+import "./assets/styles/index.css";
 
 ReactDOM.render(
   <React.StrictMode>
