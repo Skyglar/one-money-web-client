@@ -1,21 +1,20 @@
-import { RouteConfig } from './shared/route.config';
-import { MenuNavbar } from './components/menu/MenuNav';
-import AntComponent from './components/AntComponent';
-
+import { RouteConfig } from "./shared/route.config";
+import { MenuSection } from "./shared/components/menu/MenuSection";
+import AntComponent from "./shared/components/AntComponent";
+import './assets/styles/App.scss';
 
 export const MasterPage = () => {
+  return (
+    <div className="App">
+      <section>
+        <AntComponent />
 
-    return (
-        <>
-            <AntComponent />
+        <MenuSection />
+      </section>
 
-            <nav>
-                <MenuNavbar />
-            </nav>
-
-            <main>
-                <RouteConfig currentLanguage='' webApiLocale=''/>
-            </main>
-        </>
-    );
-}
+      <main>
+        <RouteConfig currentLanguage="" webApiLocale="" />
+      </main>
+    </div>
+  );
+};

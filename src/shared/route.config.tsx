@@ -1,6 +1,6 @@
-import { CategoriesComponent } from "../modules/categories/categories.component";
+import { CategoriesComponent } from "../pages/categories/categories.component";
 import { Routes, Route } from "react-router-dom";
-import { NotFound } from "../components/NotFound";
+import { NotFound } from "../shared/components/NotFound";
 
 interface IRoute {
     path: string;

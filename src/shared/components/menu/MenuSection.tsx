@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom"
 
-export const MenuNavbar = () => {
+export const MenuSection = () => {
 
     return (
         <div>

@@ -1,7 +1,6 @@
 import { Button, DatePicker, version } from "antd";
 import { useEffect, useState } from "react";
-import "../assets/styles/antd.css";
-import "../assets/styles/index.css";
+import "../../assets/styles/index.css";
 
 export default function AntComponent() {
   const [valueState, setValueState] = useState({response: undefined});

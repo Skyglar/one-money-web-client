@@ -49,7 +49,6 @@ export interface ICategoriesProps {
 }
 
 function CategoriesChart({ data }: ICategoriesProps) {
-  debugger;
   const config = {
     appendPadding: 10,
     data,
@@ -78,7 +77,6 @@ function CategoriesChart({ data }: ICategoriesProps) {
       title: {
         offsetY: -4,
         customHtml: (container: any, view: any, datum: any) => {
-          debugger;
           const { width, height } = container.getBoundingClientRect();
           const d = Math.sqrt(Math.pow(width / 2, 2) + Math.pow(height / 2, 2));
           const text = datum ? datum.type : "总计";

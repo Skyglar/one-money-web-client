@@ -1,4 +1,4 @@
-import { ApiUrlBuilder } from "../helpers/ApiUrlBuilder"
+import { ApiUrlBuilder } from "../shared/helpers/ApiUrlBuilder"
 import * as api from "../web.api/api.constants";
 
 export const GetAllCategoriesEpic = async (action$: any, store: any) =>
