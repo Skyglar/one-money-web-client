@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Category } from "../../entities/category";
 import "../../assets/styles/category.scss";
 import * as CategoryApi from "../../web.api/category.api";
-import { CategoryItemTemplate } from "./category.templates/category.item";
+import { CategoryItem } from "./category.templates/category.item";
 import CategoriesChart from "./category.templates/categories.chart";
+import { CategoryHeader } from "./category.header";
 
-interface ICategoriesComponentProps {}
+// interface ICategoriesComponentProps {}
 
 export const CategoriesComponent = () => {
   // const intialState = {
@@ -13,22 +14,37 @@ export const CategoriesComponent = () => {
   // };
 
   const [categories, setCategories] = useState<Category[]>([]);
+  const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
-    debugger;
     CategoryApi.GetAllCategoriesEpic("hello from client", "").then((data) =>
       setCategories(data)
     );
   }, []);
 
+  function addTransactionHandler() {}
+
+  function editCategoryHandler() {}
+
+  function onEditClicked() {
+    debugger;
+    setEditMode(!editMode)
+  }
+
   return (
     <div className="categories__component">
+      <CategoryHeader onEditClicked={onEditClicked}/>
       <div className="container">
         {categories.length > 0 &&
           categories.map((item, index) => {
             return (
               <div key={index.toString()} className="container__item">
-                <CategoryItemTemplate categoryModel={item} />
+                <CategoryItem
+                  categoryModel={item}
+                  onClickHandler={
+                    editMode ? editCategoryHandler : addTransactionHandler
+                  }
+                />
               </div>
             );
           })}
