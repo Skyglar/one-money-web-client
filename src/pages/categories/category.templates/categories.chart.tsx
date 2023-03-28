@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
-import { Pie, measureTextWidth } from "@ant-design/charts";
-import { Category } from "../../../entities/category";
+import { Pie, PieConfig, measureTextWidth } from "@ant-design/charts";
 
 // const data = [
 //     {
@@ -49,9 +47,10 @@ export interface ICategoriesProps {
 }
 
 function CategoriesChart({ data }: ICategoriesProps) {
-  const config = {
+  const config: PieConfig = {
     appendPadding: 10,
     data,
+    legend: false,
     angleField: "value",
     colorField: "type",
     color: (type: any) => {
@@ -64,15 +63,7 @@ function CategoriesChart({ data }: ICategoriesProps) {
         formatter: (v: any) => `${v} ¥`,
       },
     },
-    label: {
-      type: "inner",
-      offset: "-50%",
-      style: {
-        textAlign: "center",
-      },
-      autoRotate: false,
-      content: "{value}",
-    },
+    label: false,
     statistic: {
       title: {
         offsetY: -4,
@@ -100,6 +91,13 @@ function CategoriesChart({ data }: ICategoriesProps) {
           });
         },
       },
+    },
+    pieStyle: {
+      //configuring some styles for donut
+      // line Width is width of space between segments
+      // stroke is a color of space between segments
+      lineWidth: 3,
+      stroke: "yellow",
     },
     // 添加 中心统计文本 交互
     interactions: [
