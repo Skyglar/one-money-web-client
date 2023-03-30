@@ -1,6 +1,7 @@
 import { CategoriesComponent } from "../pages/categories/categories.component";
 import { Routes, Route } from "react-router-dom";
 import { NotFound } from "../pages/NotFound";
+import { AuthManager } from "../pages/AuthManager";
 
 interface IRoute {
     path: string;
@@ -9,11 +10,12 @@ interface IRoute {
 }
 
 const getRoutes = (): IRoute[] => [
+    { path: "/login", element: <AuthManager /> },
     { path: "/profile", element: <NotFound /> },
     { path: "/accounts", element: <NotFound /> },
     { path: "/categories", element: <CategoriesComponent /> },
     { path: "/transactions", element: <NotFound /> },
-    { path: "/overview", element: <NotFound />},
+    { path: "/overview", element: <NotFound /> },
 ]
 
 
