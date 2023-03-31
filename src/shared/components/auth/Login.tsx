@@ -14,7 +14,7 @@ export const Login = ({setToken} : ILoginProps) => {
         <input type="password" />
       </label>
       <div>
-        <button type="submit">Submit</button>
+        <button type="submit" onSubmit={setToken}>Submit</button>
       </div>
     </form>
   );

@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Login } from "../shared/components/auth/Login";
+import { GlobalContext } from "../shared/global.context.provider";
 
 export const AuthManager = () => {
-  const [token, setToken] = useState();
+  debugger;
+  const globalContext = useContext(GlobalContext);
 
-  return (
-    <>
-      <Login setToken={setToken} />
-    </>
-  );
+  function setToken(value: any) {
+    debugger;
+
+    globalContext.saveData({token: value})
+  }
+
+  return <Login setToken={globalContext.saveData} />
 };

@@ -1,22 +1,31 @@
-import { createContext, ProviderProps, useState } from "react";
+import { createContext, useState } from "react";
 
-interface IGlobalContext {
-    token: string,
+interface IGlobalState {
+  token: string;
 }
 
-type smt = ProviderProps<IGlobalContext>
+interface IGlobalContext {
+  globalState: IGlobalState;
+  saveData: (data: object) => void;
+}
 
-const GlobalContext = createContext<IGlobalContext>({token: ''});
-const GlobalDispatchContext = createContext<IGlobalContext>({token: ''});
+export const GlobalContext = createContext<IGlobalContext>({} as IGlobalContext);
 
-function GlobalContextProvider({children}: any) {
-    const [globalState, setGlobalState] = useState<IGlobalContext>({token: ''});
+export function GlobalContextProvider({ children }: any) {
+  const initState: IGlobalState = {
+    token: '',
+  };
 
-    return (
-        <GlobalContext.Provider value={globalState} >
-            <GlobalDispatchContext.Provider value={setGlobalState}>
-                {children}
-            </GlobalDispatchContext.Provider>
-        </GlobalContext.Provider>
-    );
+  const [globalState, setGlobalState] = useState<IGlobalState>(initState);
+
+  const saveData = (data: object) => {
+    debugger;
+    setGlobalState(Object.assign({}, globalState, { ...data }));
+  };
+
+  return (
+    <GlobalContext.Provider value={{ globalState, saveData }}>
+      {children}
+    </GlobalContext.Provider>
+  );
 }
