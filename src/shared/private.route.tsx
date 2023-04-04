@@ -1,12 +1,17 @@
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
-import { GlobalContext } from "./global.context.provider";
+import useGlobalContext from "./global.context.provider";
+import { useLocation } from "react-router-dom";
 
-export const PrivateRoute = (props: any) => {
+export const PrivateRoute = ({ children }: any) => {
   debugger;
-  const globalContext = useContext(GlobalContext);
+  const { isAuthenticated } = useGlobalContext();
+  const location = useLocation();
 
-  return globalContext.globalState.token.length > 0 
-    ? props.children  
-    : <Navigate to="/login" />;
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace state={{ path: location.pathname}} />;
+  }
+
+  return children;
 };

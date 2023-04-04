@@ -1,16 +1,22 @@
 import { useContext } from "react";
 import { Login } from "../shared/components/auth/Login";
-import { GlobalContext } from "../shared/global.context.provider";
+import useGlobalContext from "../shared/global.context.provider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const AuthManager = () => {
   debugger;
-  const globalContext = useContext(GlobalContext);
+  const globalContext = useGlobalContext();
+  const navigate = useNavigate();
+  const { state } = useLocation();
 
   function setToken(value: any) {
+    
     debugger;
-
-    globalContext.saveData({token: value})
+    value.preventDefault();
+    globalContext.login().then(() => {
+      navigate(state?.path || "/categories");
+    })
   }
 
-  return <Login setToken={globalContext.saveData} />
+  return <Login setToken={setToken} />
 };

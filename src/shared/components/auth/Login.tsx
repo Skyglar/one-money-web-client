@@ -4,7 +4,7 @@ interface ILoginProps {
 
 export const Login = ({setToken} : ILoginProps) => {
   return (
-    <form>
+    <form method="post" onSubmit={setToken}>
       <label>
         <p>Username</p>
         <input type="text" />
@@ -14,7 +14,7 @@ export const Login = ({setToken} : ILoginProps) => {
         <input type="password" />
       </label>
       <div>
-        <button type="submit" onSubmit={setToken}>Submit</button>
+        <button type="submit">Submit</button>
       </div>
     </form>
   );
