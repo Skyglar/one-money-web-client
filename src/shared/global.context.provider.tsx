@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
+// TODO refactor
+
 interface IGlobalState {
   token: string;
   isAuthenticated: boolean;
@@ -16,11 +18,19 @@ interface IGlobalContext {
   logout: () => Promise<void>;
 }
 
-export const GlobalContext = createContext<IGlobalContext>(
+const GlobalContext = createContext<IGlobalContext>(
   {} as IGlobalContext
 );
 
-function useGlobalContext() {
+export function ProvideGlobalContext({ children }: any) {
+  const context = useProvideGlobalContext();
+
+  return (
+    <GlobalContext.Provider value={context}>{children}</GlobalContext.Provider>
+  );
+}
+
+function useProvideGlobalContext() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return {
@@ -42,32 +52,6 @@ function useGlobalContext() {
   };
 }
 
-export function GlobalContextProvider({ children }: any) {
-  // const initState: IGlobalState = {
-  //   token: "",
-  //   isAuthenticated: false,
-  // };
-
-  // const [globalState, setGlobalState] = useState<IGlobalState>(initState);
-
-  // const saveData = (data: object) => {
-  //   debugger;
-  //   setGlobalState(Object.assign({}, globalState, { ...data }));
-  // };
-
-  // return (
-  //   <GlobalContext.Provider value={{ globalState, saveData }}>
-  //     {children}
-  //   </GlobalContext.Provider>
-  // );
-
-  const context = useGlobalContext();
-
-  return (
-    <GlobalContext.Provider value={context}>{children}</GlobalContext.Provider>
-  );
-}
-
-export default function GlobalContextConsumer() {
+export default function useGlobalContext() {
   return useContext(GlobalContext);
 }
